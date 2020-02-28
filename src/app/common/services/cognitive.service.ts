@@ -24,7 +24,7 @@ export class CognitiveServices{
 
     // For analyzing the searched images
     analyzeImage(request: ComputerVisionRequest): Observable<ComputerVisionResponse> {
-        debugger;
+      
 
         
         return this.http.post('https://imagedetectionbing.cognitiveservices.azure.com/vision/v2.0/analyze?visualFeatures=Description,Tags', this.computerVisionAPIKey, request)

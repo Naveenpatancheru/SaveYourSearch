@@ -24,7 +24,7 @@
     <h2><b>Search Results</b></h2>
     <div class="results" *ngIf="searchResults">
         <div *ngFor="let result of searchResults" (click)="analyze(result)"  class="card">
-            <img src="{{result?.thumbnailUrl}}" />
+            <img src="{{result?.thumbnailUrl}}" class="img-thumbnail" />
         </div>
     </div>
     <h4 class="no-results" *ngIf="!searchResults && !isSearching">Search for images to display results here.</h4>
@@ -37,7 +37,7 @@
     <div *ngIf="searchResults">
         <h2><b>Selected Photo</b></h2>
         <div class="currentItem card" *ngIf="currentAnalytics || isAnalyzing">
-            <img src="{{currentItem?.thumbnailUrl}}" />
+            <img src="{{currentItem?.thumbnailUrl}}"  height="500px" width="500px" />
 
             <div *ngIf="!isAnalyzing">
                 <h4><b>{{currentAnalytics?.description.captions[0].text}}</b></h4>
@@ -46,6 +46,11 @@
                        &nbsp; {{tag.name}}  &nbsp;
                     </span>
                 </div>
+            
+                <button *ngIf="!currentItemSaved" (click)="saveImage()">Save Image</button>
+         <span *ngIf="currentItemSaved">Image Saved!</span>
+
+
             </div>
 
             <div *ngIf="isAnalyzing">

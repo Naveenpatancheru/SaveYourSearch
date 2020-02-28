@@ -5,4 +5,6 @@ value: ImageResult[];
 export interface ImageResult{
 name: string;
 thumbnailUrl: string;
+imageId: string;
+encodingFormat: string;
 }
