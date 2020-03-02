@@ -4,11 +4,13 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search/search.component';
+import { GalleryComponent } from './gallery/gallery/gallery.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchComponent
+    SearchComponent,
+    GalleryComponent
   ],
   imports: [
     BrowserModule,
