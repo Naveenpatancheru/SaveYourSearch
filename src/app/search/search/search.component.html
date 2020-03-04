@@ -1,15 +1,16 @@
 
 <div class="page-header">
    
-    <app-gallery></app-gallery>
+    <!-- <app-gallery></app-gallery> -->
     <!-- <div class="form-group">
     
 </div> -->
 <br>
     <div class="form-group">
-        <div class="col-sm-4">
-            <h1>Search And Save</h1>
-            <p>Search Images using Bing Image Cognitive Search.</p>
+        <div class="col-sm-6">
+           <h1>Search And Save</h1>
+            <!-- <p>Search Images using Bing Image Cognitive Search.</p>  -->
+       
         </div>
       
         <div class="col-sm-4">
@@ -21,16 +22,21 @@
     </div>
     </div>
 
-
-    <h2><b>Search Results</b></h2>
+  
+   
     <div class="results" *ngIf="searchResults">
+        <h2><b>Search Results</b></h2>
+        <!-- <div class="alert alert-success"  style="text-align: center; font-size: 8px; color: black; margin-top: 15px; padding: 0;"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;   <h4 > Search Results</h4></div> -->
         <div *ngFor="let result of searchResults" (click)="analyze(result)"  class="card">
             <img src="{{result?.thumbnailUrl}}" class="img-thumbnail" />
         </div>
     </div>
-    <h4 class="no-results" *ngIf="!searchResults && !isSearching">Search for images to display results here.</h4>
-    <h4 class="no-results" *ngIf="isSearching">Loading Search Results...</h4>
-    <app-gallery></app-gallery>
+    <!-- <h4 class="no-results" *ngIf="!searchResults && !isSearching">Search for images to display results here.</h4> -->
+  <div class="alert alert-success" style="text-align: center; font-size: 8px; color: black; margin-top: 15px; padding: 0;"><span class="glyphicon glyphicon-info-sign"></span>&nbsp; <h6 class="no-results" *ngIf="!searchResults && !isSearching">Search for images to display results here.</h6></div>
+   
+  <div class="alert alert-success" *ngIf="isSearching" style="text-align: center; font-size: 8px; color: black; margin-top: 15px; padding: 0;"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;   <h4 class="no-results" *ngIf="isSearching">Loading Search Results...</h4></div>
+  <h4 class="no-results" *ngIf="isSearching">Loading Search Results...</h4>
+    <!-- <app-gallery></app-gallery> -->
 
 
 

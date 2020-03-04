@@ -1,0 +1,32 @@
+<div class="form-group">
+    <br>
+    <div class="col-sm-6">
+       <h1>Search the Web And Save</h1>
+        <!-- <p>Search Images using Bing Image Cognitive Search.</p>  -->
+   
+    </div>
+  
+    <div class="col-sm-4">
+        <input type="text" class="form-control" id="searchInput" #searchInput>
+    </div>
+    <br>
+    <div class="col-sm-4">
+    <button type="submit" class="btn btn-success" (click)="webSearch(searchInput.value)">Search Web</button>
+</div>
+
+
+
+<div class="results" *ngIf="webSearchResults">
+    <h2><b>Search Results</b></h2>
+    {{webSearchResults._type}}
+    {{webSearchResults.queryContext.originalQuery}}
+    {{webSearchResults.webPages.webSearchUrl}}
+    <!-- {{webSearchResults.webPages.webSearchUrl.value[0]}}
+    {{webSearchResults.webPages.webSearchUrl.value[0].id}}
+    {{webSearchResults.webPages.webSearchUrl.value[0].url}} -->
+    <!-- <div class="alert alert-success"  style="text-align: center; font-size: 8px; color: black; margin-top: 15px; padding: 0;"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;   <h4 > Search Results</h4></div> -->
+    <div *ngFor="let value of webSearchResults.webPages.value" class="card">
+        {{value.url}}     {{value.id}}
+    </div>
+</div>
+</div>
