@@ -27,7 +27,9 @@
     <!-- <div class="alert alert-success"  style="text-align: center; font-size: 8px; color: black; margin-top: 15px; padding: 0;"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;   <h4 > Search Results</h4></div> -->
     <div *ngFor="let value of webSearchResults.webPages.value" >
         <!-- {{value.url}}     {{value.id}} -->
-        <p><a href="{{value.url}}"  target="_blank" class="text-primary"> {{value.id}}</a>
+        <p><a href="{{value.url}}"  target="_blank" class="text-primary"> {{value.url}}</a>
+            <br>
+            {{value.snippet}}
     &nbsp;  <button class="btn btn-success"  (click)="saveUrlInfo(value)">Save Link</button></p>
        <br>
         <br>

@@ -1,6 +1,6 @@
 <div class="results" *ngIf="urlInfo">
     <h2><b>Search Results</b></h2>
-    {{urlInfo.length}}
+ <h3> Total Number of Bookmarks saved:  {{urlInfo.length}}</h3>
     
     <!-- {{webSearchResults.webPages.webSearchUrl.value[0]}}
     {{webSearchResults.webPages.webSearchUrl.value[0].id}}
@@ -8,8 +8,8 @@
     <!-- <div class="alert alert-success"  style="text-align: center; font-size: 8px; color: black; margin-top: 15px; padding: 0;"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;   <h4 > Search Results</h4></div> -->
     <div *ngFor="let value of urlInfo" >
         <!-- {{value.url}}     {{value.id}} -->
-        <p><a href="{{value.displayUrl}}"  target="_blank" class="text-primary"> {{value.id}}</a>
-    &nbsp;  <button class="btn btn-success"  (click)="saveUrlInfo(value)">Save Link</button></p>
+        <p><a href="{{value.displayUrl}}"  target="_blank" class="text-primary"> {{value.displayUrl}}</a><br>
+             {{value.snippet}}
        <br>
         <br>
     </div>
