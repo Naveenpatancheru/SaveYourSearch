@@ -1,11 +1,11 @@
-import { BingWebSearchResponse } from './../models/bingWebSearchResponse';
+import { BingWebSearchResponse, value } from './../models/bingWebSearchResponse';
 import { BingwebsearchComponent } from './../../bingwebsearch/bingwebsearch/bingwebsearch.component';
-
+import { map, catchError } from "rxjs/operators";
 import { AzureHttpClient } from './azureHttpClient';
-import { Headers, Http } from '@angular/http';
+import { Headers, Http,RequestOptions, RequestMethod  } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map } from "rxjs/operators";
+
 import { HttpModule } from '@angular/http';
 import { ComputerVisionRequest, ComputerVisionResponse } from '../models/computerVisionResponse';
 // import 'rxjs/add/operator/catch';
@@ -34,6 +34,37 @@ export class BingWebSearchServices{
              
             
             };
+           
+            saveUrlInfo(urlInfo :value) :Observable<boolean>
+            {
+                debugger;
+                const options = {responseType: 'text'};
+                var headerOptions= new Headers({'Content-Type': 'application/json; charset=utf-8'});
+                var requestOptions = new RequestOptions({method: RequestMethod.Post, headers: headerOptions});
+                return this.http.post('https://localhost:44388/api/BingWebSearch', urlInfo,requestOptions
+                )
+                  .pipe(map(response => {
+                      return response.ok;
+                  }));
+            }
+
+             getUrlInfo(urlInfo :string) :Observable<value[]>
+            {
+                return this.http.get(`https://localhost:44388/api/BingWebSearch/${urlInfo}`)
+            .pipe(
+                map(images => {
+                return images.json() as value[] ;
+                             }
+                    ),catchError(this.handleError)
+
+                );
+
+            }
+            private handleError(error: any): Promise<any> {
+                debugger
+                console.error('An error occurred', error); // for demo purposes only
+                return Promise.reject(error.message || error);
+            }
            
     }
 

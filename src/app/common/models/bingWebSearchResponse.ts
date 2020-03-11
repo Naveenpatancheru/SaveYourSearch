@@ -34,15 +34,16 @@ export interface videos {
     isFamilyFriendly: boolean;
 }
 export interface value {
-    id: string;
-    name: string;
-    url: string;
-    isFamilyFriendly: boolean;
-    displayUrl: string;
-    snippet: string;
     dateLastCrawled: Date;
+    displayUrl: string;
+    id: string;
+    isFamilyFriendly: boolean;
+    isNavigational: boolean;
     language: string;
-    isNavigational: boolean
+    name: string;
+    snippet: string;
+    url: string; 
+    userid: string;
 }
 export interface rankingResponse {
     mainline: items[];

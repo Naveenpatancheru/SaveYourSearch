@@ -2,7 +2,7 @@ import { ImagePostRequest } from './../models/ImagePostRequest';
 import { Headers, Http, RequestOptions, RequestMethod } from '@angular/http';
 import { Injectable,InjectionToken, Inject } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map } from "rxjs/operators";
+import { map, catchError } from "rxjs/operators";
 import { SavedImage } from '../models/savedImage';
 // import 'rxjs/add/operator/catch';
 // import 'rxjs/add/operator/map';
@@ -44,9 +44,10 @@ export class SaveYourSearch{
         return this.http.get(`https://localhost:44316/api/images/${userId}`)
             .pipe(map(images => {
                 return images.json() as SavedImage[];
-            }));
+            }), catchError(this.handleError));
     }
     private handleError(error: any): Promise<any> {
+        debugger
         console.error('An error occurred', error); // for demo purposes only
         return Promise.reject(error.message || error);
     }

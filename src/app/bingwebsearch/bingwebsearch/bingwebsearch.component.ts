@@ -1,4 +1,4 @@
-import { BingWebSearchResponse } from './../../common/models/bingWebSearchResponse';
+import { BingWebSearchResponse, value } from './../../common/models/bingWebSearchResponse';
 import { Component, OnInit } from '@angular/core';
 import { CognitiveServices } from '../../common/services/cognitive.service';
 import {BingWebSearchServices} from '../../common/services/bingWebSearch.service';
@@ -12,7 +12,8 @@ import { map } from "rxjs/operators";
 })
 export class BingwebsearchComponent implements OnInit {
   webSearchResults: BingWebSearchResponse | null;
- 
+  urlInfo: value | null;
+  currentItemSaved: boolean;
   constructor(private bingWebSearchService: BingWebSearchServices,private http: Http) { }
 
   ngOnInit() {
@@ -21,11 +22,12 @@ export class BingwebsearchComponent implements OnInit {
 
 this.webSearchResults=null;
 this.bingWebSearchService.searchWeb(serachItem).subscribe(result => {
-debugger;
 
   this.webSearchResults = result;
   console.log(this.webSearchResults);
 })
+
+
 
 // this.bingWebSearchService.searchWeb(serachItem).subscribe(result => {
 //   debugger;
@@ -52,5 +54,19 @@ debugger;
 
 
 
+  }
+
+  saveUrlInfo(urlInfo : value){
+
+this.bingWebSearchService.saveUrlInfo(urlInfo).subscribe(saveSuccessful => {
+  this.currentItemSaved = saveSuccessful;
+});
+    // this.webSearchResults=null;
+    // this.bingWebSearchService.searchWeb(serachItem).subscribe(result => {
+    // debugger;
+    
+    //   this.webSearchResults = result;
+    //   console.log(this.webSearchResults);
+    // })
   }
 }
