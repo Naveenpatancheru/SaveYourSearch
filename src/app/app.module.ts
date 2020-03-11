@@ -8,6 +8,7 @@ import { SearchComponent } from './search/search/search.component';
 import { GalleryComponent } from './gallery/gallery/gallery.component';
 import { BingwebsearchComponent } from './bingwebsearch/bingwebsearch/bingwebsearch.component';
 import { SavedbingsearchComponent } from './bingwebsearch/savedbingsearch/savedbingsearch.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 const appRoutes: Routes = [
   { path: 'search', component: SearchComponent },
   { path: 'gallery', component: GalleryComponent },
@@ -27,6 +28,7 @@ const appRoutes: Routes = [
     BrowserModule,
     CommonModule,
     HttpModule,
+    FontAwesomeModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only

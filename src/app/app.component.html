@@ -20,7 +20,7 @@
 
 <!-- <app-search></app-search> -->
 
-<div class="container-fluid  text-center mt-4 w-50">
+<div class="container-fluid  text-center mt-4 w-50" style="display:none">
 
     <!-- <router-outlet></router-outlet> -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -39,9 +39,55 @@
         </div>
       </div>
     </nav>
+</div>
+
+
+
+
+
+<!-- <nav style="background-color:#45b29a;" > -->
+  <!-- <nav style="background-color:#28a745;" > -->
+    <nav style="background-color:#00C851;" >
+  <div class="container">
     
-   
+    
+    <div class="toggle">
+         <i id="social-windows" class="fa fa-bars menu"></i>
+    </div>
+    <div class="navbar-header" style="display:none">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="navbar-toggler-icon"></span>
+          <!-- <span class="sr-only">Toggle navigation  navbar-toggler      </span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>  -->
+        
+      </button>
+      <a class="navbar-brand" href="#"><i class="fa fa-bars"></i></a>
+    </div>
+    <nav  class="menuBar">
+        <ul >
+              <li class="ladybug">   <fa-icon [icon]="faCloud" size="2x"></fa-icon>&nbsp; <fa-icon [icon]="faBookmark" size="1x"></fa-icon></li>
+              <!-- <fa-icon [icon]="faSave" size="2x"></fa-icon> -->
+             
+              <li> <a routerLink="search" routerLinkActive="router-link-active"  class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a></li>
+              <li>   <a  routerLink="/search" routerLinkActive="router-link-active"  class="nav-item nav-link" href="#">BingImageSearch</a></li>
+              <li> <a routerLink="/gallery" routerLinkActive="router-link-active" class="nav-item nav-link" href="#">Gallery</a></li>
+              <li>  <a routerLink="/bingwebsearch" routerLinkActive="router-link-active" class="nav-item nav-link" href="#">BingWebSearch</a></li>
+              <li>    <a routerLink="/savedbingsearch" routerLinkActive="router-link-active" class="nav-item nav-link" href="#">SavedSearch</a></li>
+           
+        </ul>
+    </nav>
+    
+  
   </div>
+</nav>
+
+
+
+
+
+
   <div class="container">
     <router-outlet></router-outlet>
   </div>
