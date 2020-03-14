@@ -1,0 +1,51 @@
+
+  
+  .amber-textarea textarea.md-textarea:focus:not([readonly]) {
+    border-bottom: 8px solid #5cb85c;
+    box-shadow: 1px 4px 0 0 #5cb85c;
+  }
+  .active-amber-textarea.md-form label.active {
+    color: #5cb85c;
+  }
+  .active-amber-textarea.md-form textarea.md-textarea:focus:not([readonly])+label {
+    color: #5cb85c;
+  }
+  
+  .divFont {
+    border : none !important;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 16px;
+  }
+  .divHeadLine{
+    border : none !important;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 21px;
+  }
+  .divBorder{
+    border : none !important;
+  }
+  
+  .active-amber-textarea-2 textarea.md-textarea {
+    border-bottom: 8px solid #5cb85c;
+    box-shadow:1px 4px  0 0 #5cb85c;
+  }
+  .active-amber-textarea-2.md-form label.active {
+    color: #5cb85c;
+  }
+  .active-amber-textarea-2.md-form label {
+    color: #5cb85c;
+  }
+  .active-amber-textarea-2.md-form textarea.md-textarea:focus:not([readonly])+label {
+    color: #5cb85c;
+  } 
+
+
+
+  .shadow-textarea textarea.form-control::placeholder {
+    font-weight: 300;
+}
+.shadow-textarea textarea.form-control {
+    padding-left: 0.8rem;
+}
+
+

@@ -9,12 +9,16 @@ import { GalleryComponent } from './gallery/gallery/gallery.component';
 import { BingwebsearchComponent } from './bingwebsearch/bingwebsearch/bingwebsearch.component';
 import { SavedbingsearchComponent } from './bingwebsearch/savedbingsearch/savedbingsearch.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NotesComponent } from './notes/notes.component';
+import { AddnewnotesComponent } from './addnewnotes/addnewnotes.component';
 const appRoutes: Routes = [
   { path: 'search', component: SearchComponent },
   { path: 'gallery', component: GalleryComponent },
   { path: 'bingwebsearch', component: BingwebsearchComponent },
   { path: '',   redirectTo: '/search', pathMatch: 'full' },
-  { path:'savedbingsearch',component:SavedbingsearchComponent}
+  { path:'savedbingsearch',component:SavedbingsearchComponent},
+  { path:'notes',component:NotesComponent},
+  { path:'addnewnotes',component:AddnewnotesComponent}
 ];
 @NgModule({
   declarations: [
@@ -22,7 +26,9 @@ const appRoutes: Routes = [
     SearchComponent,
     GalleryComponent,
     BingwebsearchComponent,
-    SavedbingsearchComponent
+    SavedbingsearchComponent,
+    NotesComponent,
+    AddnewnotesComponent
   ],
   imports: [
     BrowserModule,
