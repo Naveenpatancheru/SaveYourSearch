@@ -1,4 +1,4 @@
-import { note } from './../models/note';
+import { note,noteClass } from './../models/note';
 import { BingWebSearchResponse, value } from './../models/bingWebSearchResponse';
 import { BingwebsearchComponent } from './../../bingwebsearch/bingwebsearch/bingwebsearch.component';
 import { map, catchError } from "rxjs/operators";
@@ -25,9 +25,18 @@ export class NoteService{
         return images.json() as note[] ;
                      }
             ),catchError(this.handleError)
-
         );
-
+    }
+    public saveNoteInfo(noteInfo :noteClass):Observable<boolean>
+    {
+        const options = {responseType: 'text'};
+        var headerOptions= new Headers({'Content-Type': 'application/json; charset=utf-8'});
+        var requestOptions = new RequestOptions({method: RequestMethod.Post, headers: headerOptions});
+         return this.http.post('https://localhost:44388/api/Notes', noteInfo,requestOptions
+          )
+            .pipe(map(response => {
+                return response.ok;
+            }));
     }
     private handleError(error: any): Promise<any> {
         debugger

@@ -11,6 +11,8 @@ import { SavedbingsearchComponent } from './bingwebsearch/savedbingsearch/savedb
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NotesComponent } from './notes/notes.component';
 import { AddnewnotesComponent } from './addnewnotes/addnewnotes.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 const appRoutes: Routes = [
   { path: 'search', component: SearchComponent },
   { path: 'gallery', component: GalleryComponent },
@@ -34,6 +36,7 @@ const appRoutes: Routes = [
     BrowserModule,
     CommonModule,
     HttpModule,
+    ReactiveFormsModule,
     FontAwesomeModule,
     RouterModule.forRoot(
       appRoutes,
