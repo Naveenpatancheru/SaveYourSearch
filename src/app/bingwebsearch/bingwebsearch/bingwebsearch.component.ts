@@ -5,6 +5,7 @@ import {BingWebSearchServices} from '../../common/services/bingWebSearch.service
 import { BingSearchResponse } from '../../common/models/bingSearchResponse';
 import { Headers, Http } from '@angular/http';
 import { map } from "rxjs/operators";
+import { v4 as uuid } from 'uuid';
 @Component({
   selector: 'app-bingwebsearch',
   templateUrl: './bingwebsearch.component.html',
@@ -57,6 +58,8 @@ this.bingWebSearchService.searchWeb(serachItem).subscribe(result => {
   }
 
   saveUrlInfo(urlInfo : value){
+
+    urlInfo.id=uuid();
 
 this.bingWebSearchService.saveUrlInfo(urlInfo).subscribe(saveSuccessful => {
   this.currentItemSaved = saveSuccessful;

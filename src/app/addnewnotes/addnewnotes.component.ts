@@ -3,6 +3,7 @@ import { note,noteClass } from './../common/models/note';
 import { Component, OnInit,Inject } from '@angular/core';
 import { faStickyNote } from '@fortawesome/free-solid-svg-icons';
 import { FormGroup, FormControl } from '@angular/forms';
+import { v4 as uuid } from 'uuid';
 @Component({
   selector: 'app-addnewnotes',
   templateUrl: './addnewnotes.component.html',
@@ -22,17 +23,18 @@ export class AddnewnotesComponent implements OnInit {
   }
   btnAddNewNotes()
   {
-  
+  debugger;
    
-  this.noteClass.noteId="0020";
+  this.noteClass.noteId=uuid();
   this.noteClass.noteHeadLine=this.notesForm.value.noteHeadline;
   this.noteClass.notesInfo=this.notesForm.value.noteInformation;
-  this.noteClass.createdDate="Testing";
+  this.noteClass.createdDate="Testing4/15";
   this.noteClass.moreInfo="MoreInfo";
-  this.noteClass.bufferColumn="BufferColumn";
+  this.noteClass.bufferColumn="BufferColumnN";
   this.noteService.saveNoteInfo(this.noteClass).subscribe(saveSuccessful => {
     this.noteSaveResult = saveSuccessful;
   });
   }
+
 
 }
