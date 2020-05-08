@@ -1,7 +1,7 @@
 import { NoteService } from './../common/services/notes.service';
 import { note,noteClass } from './../common/models/note';
 import { Component, OnInit,Inject } from '@angular/core';
-import { faStickyNote } from '@fortawesome/free-solid-svg-icons';
+// import { faStickyNote } from '@fortawesome/free-solid-svg-icons';
 import { FormGroup, FormControl } from '@angular/forms';
 import { v4 as uuid } from 'uuid';
 @Component({
@@ -13,7 +13,7 @@ export class AddnewnotesComponent implements OnInit {
  noteClass= new noteClass();
   notesForm: FormGroup;
   constructor(private noteService:NoteService) { }
-  faStickyNote=faStickyNote;
+  // faStickyNote=faStickyNote;
   noteSaveResult:boolean;
   ngOnInit() {
     this.notesForm = new FormGroup({

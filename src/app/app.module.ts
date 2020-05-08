@@ -8,10 +8,12 @@ import { SearchComponent } from './search/search/search.component';
 import { GalleryComponent } from './gallery/gallery/gallery.component';
 import { BingwebsearchComponent } from './bingwebsearch/bingwebsearch/bingwebsearch.component';
 import { SavedbingsearchComponent } from './bingwebsearch/savedbingsearch/savedbingsearch.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+// import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NotesComponent } from './notes/notes.component';
 import { AddnewnotesComponent } from './addnewnotes/addnewnotes.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login/login.component';
+import { RegistrationComponent } from './registration/registration/registration.component';
 
 const appRoutes: Routes = [
   { path: 'search', component: SearchComponent },
@@ -30,14 +32,16 @@ const appRoutes: Routes = [
     BingwebsearchComponent,
     SavedbingsearchComponent,
     NotesComponent,
-    AddnewnotesComponent
+    AddnewnotesComponent,
+    LoginComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
     CommonModule,
     HttpModule,
     ReactiveFormsModule,
-    FontAwesomeModule,
+    // FontAwesomeModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
