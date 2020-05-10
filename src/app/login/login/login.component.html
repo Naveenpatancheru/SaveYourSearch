@@ -90,7 +90,21 @@
                 </button>
                 <!-- <a routerLink="/login" class="btn btn-link">Cancel</a> -->
             </div>
-
+            <div class="form-group">
+                <label for="password" >Please Enter OTP</label>
+                <input type="text" formControlName="OTP" class="form-control" [ngClass]="{ 'is-invalid': submittedResgiter && f.OTP.errors }" />
+                <div *ngIf="submittedResgiter && f.OTP.errors" class="invalid-feedback">
+                    <!-- <div *ngIf="f.OTP.errors.required">Password is required</div>
+                    <div *ngIf="f.passwordRegistration.errors.minlength">Password must be at least 6 characters</div> -->
+                </div>
+            </div>
+            <div class="form-group">
+                <button [disabled]="loading" type="button" class="btn btn-lg btn-success btn-block" (click)="onSubmit('OK')">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    OK
+                </button>
+                <!-- <a routerLink="/login" class="btn btn-link">Cancel</a> -->
+            </div>
 
 
             </div>
