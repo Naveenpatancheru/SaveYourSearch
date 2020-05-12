@@ -1,3 +1,4 @@
+import { User } from './../../common/models/user';
 import { UserService } from './../../common/services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -17,6 +18,8 @@ export class LoginComponent implements OnInit {
   returnUrl: string;
   result:boolean;
   OTP:string;
+  loginResult:string;
+  user:User;
   constructor(  private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private userService: UserService,
@@ -30,7 +33,8 @@ export class LoginComponent implements OnInit {
       lastName: ['', Validators.required],
       usernamePhoneRegistration: ['', Validators.required],
       passwordRegistration: ['', [Validators.required, Validators.minLength(6)]],
-      OTP: ['','']
+      OTP: ['',''],
+      token:['','']
   });
   }
   get f() { return this.loginForm.controls; }
@@ -61,14 +65,30 @@ export class LoginComponent implements OnInit {
 onSubmit(buttonType): void {
   if(buttonType==="Login") {
     this.submitted = true;
-      console.log(buttonType)
+      this.userService.login(this.loginForm.value).subscribe( result=>{
+        this.user=result;
+       // console.log(this.loginResult);
+      });
+      // debugger;
+      // // this.router.navigateByUrl('/home');
+      // this.router.navigateByUrl('/home');
+      if(this.user.token=="Valid")
+        {
+        // this.router.navigateByUrl('/home');
+        this.router.navigate(['/home'],{relativeTo:this.route});
+        }
+        else
+        {
+          // Need to tell the password is incorret
+          return;
+        }
+      
   }
   if(buttonType==="Register"){
     debugger;
     this.submittedResgiter = true;
     this.userService.sendOTP(this.loginForm.value.usernamePhoneRegistration).subscribe( result=>{
       this.OTP=result;
-      console.log(this.OTP);
     });
     
    
@@ -89,12 +109,12 @@ onSubmit(buttonType): void {
   if(buttonType==="OK"){
     if(this.OTP==this.loginForm.value.OTP)
     {
-      debugger;
+    
       this.userService.register(this.loginForm.value).subscribe(saveSuccessful => {
         this.result = saveSuccessful;
       });
     }else{
-      debugger;
+      
    
   }
   }

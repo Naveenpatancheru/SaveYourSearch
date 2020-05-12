@@ -14,15 +14,19 @@ import { AddnewnotesComponent } from './addnewnotes/addnewnotes.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login/login.component';
 import { RegistrationComponent } from './registration/registration/registration.component';
-
+import { HomeComponent } from './home/home.component';
+import { APP_BASE_HREF } from '@angular/common';
+import { LoginregisterComponent } from './loginregister/loginregister.component';
 const appRoutes: Routes = [
   { path: 'search', component: SearchComponent },
   { path: 'gallery', component: GalleryComponent },
   { path: 'bingwebsearch', component: BingwebsearchComponent },
-  { path: '',   redirectTo: '/search', pathMatch: 'full' },
+  // { path: '',   redirectTo: '/search', pathMatch: 'full' },
   { path:'savedbingsearch',component:SavedbingsearchComponent},
   { path:'notes',component:NotesComponent},
-  { path:'addnewnotes',component:AddnewnotesComponent}
+  { path:'addnewnotes',component:AddnewnotesComponent},
+  { path:'home',component:HomeComponent},
+  { path:'login',component:LoginComponent}
 ];
 @NgModule({
   declarations: [
@@ -34,7 +38,9 @@ const appRoutes: Routes = [
     NotesComponent,
     AddnewnotesComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    HomeComponent,
+    LoginregisterComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +53,7 @@ const appRoutes: Routes = [
       { enableTracing: true } // <-- debugging purposes only
     )
   ],
-  providers: [],
+  providers: [ {provide: APP_BASE_HREF, useValue: '/' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
