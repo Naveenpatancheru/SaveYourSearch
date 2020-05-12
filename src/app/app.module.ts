@@ -17,6 +17,7 @@ import { RegistrationComponent } from './registration/registration/registration.
 import { HomeComponent } from './home/home.component';
 import { APP_BASE_HREF } from '@angular/common';
 import { LoginregisterComponent } from './loginregister/loginregister.component';
+import { AlertComponent } from './alert/alert.component';
 const appRoutes: Routes = [
   { path: 'search', component: SearchComponent },
   { path: 'gallery', component: GalleryComponent },
@@ -40,7 +41,8 @@ const appRoutes: Routes = [
     LoginComponent,
     RegistrationComponent,
     HomeComponent,
-    LoginregisterComponent
+    LoginregisterComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,

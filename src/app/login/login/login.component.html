@@ -23,6 +23,9 @@
         <h1 id="myModalLabel" style="text-align: center;  margin-bottom: 5px;">Login</h1>
         <!-- <h5><p style="text-align: center;">New users&nbsp;<a href="View/UserRegistration.aspx">Click here to Register</a></p></h5>  -->
         <br>
+        <div *ngIf="invalidUser" class='alert alert-danger'>
+            The UserName or Password is incorrect !
+            </div>
     <div class="form-group">
         <label for="username" class="control-label">PhoneNumber/EmailId</label>
         <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid':submitted && f.username.errors }" />
@@ -40,7 +43,8 @@
     </div>
 
     <div class="form-group">
-        <button [disabled]="loading" type="submit" class="btn btn-lg btn-success btn-block" (click)="onSubmit('Login')">
+        <!-- [disabled]="loading"  -->
+        <button type="submit" class="btn btn-lg btn-success btn-block" (click)="onSubmit('Login')">
             <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
             Login
         </button>
