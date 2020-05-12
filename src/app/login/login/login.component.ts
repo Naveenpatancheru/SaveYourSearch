@@ -21,6 +21,10 @@ export class LoginComponent implements OnInit {
   loginResult:string;
   user:User;
   invalidUser:boolean;
+  showRegisterBtn:boolean;
+  showOTPMessage:boolean;
+  showDivOTP:boolean;
+  showOTPErrorMessage:boolean;
   constructor(  private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private userService: UserService,
@@ -39,41 +43,19 @@ export class LoginComponent implements OnInit {
       token:['TestingToken',''],
       id:['TestingID','']
   });
+  this.showRegisterBtn=true;
+  this.showDivOTP=false;
+  this.showOTPMessage=false;
   }
   get f() { return this.loginForm.controls; }
-
-//   onSubmit() {
-//     this.submitted = true;
-
-//     // reset alerts on submit
-
-//     // stop here if form is invalid
-//     if (this.loginForm.invalid) {
-//         return;
-//     }
-
-//     this.loading = true;
-//     // this.authenticationService.login(this.f.username.value, this.f.password.value)
-//     //     .pipe(first())
-//     //     .subscribe(
-//     //         data => {
-//     //             this.router.navigate([this.returnUrl]);
-//     //         },
-//     //         error => {
-//     //             this.alertService.error(error);
-//     //             this.loading = false;
-//     //         });
-// }
 
 onSubmit(buttonType): void {
   if(buttonType==="Login") {
     this.submitted = true;
       this.userService.login(this.loginForm.value).subscribe( result=>{
         this.user=result;
-       // console.log(this.loginResult);
       });
       this.alertService.clear();
-      // debugger;
       // // this.router.navigateByUrl('/home');
       // this.router.navigateByUrl('/home');
       if(this.user.token=="Valid")
@@ -84,47 +66,30 @@ onSubmit(buttonType): void {
         }
         else
         {
-         
-          // Need to 
           this.invalidUser=true;
-          //tell the password is incorret
-          this.alertService.error("The Username or password is incorrect");
-        
         }
-      
   }
   if(buttonType==="Register"){
     debugger;
     this.submittedResgiter = true;
     this.userService.sendOTP(this.loginForm.value.usernamePhoneRegistration).subscribe( result=>{
       this.OTP=result;
+      this.showDivOTP=true;
+      this.showRegisterBtn=false;
+      this.showOTPMessage=true;
+      this.showOTPErrorMessage=false;
     });
-    
-   
-    //  this.userService.register(this.loginForm.value)
-    //         .pipe(first())
-    //         .subscribe(
-    //             data => {
-    //               //  this.alertService.success('Registration successful', true);
-    //                // this.router.navigate(['/login']);
-    //             },
-    //             error => {
-    //              //   this.alertService.error(error);
-    //               //  this.loading = false;
-    //             });
-    
-      // console.log(buttonType)
   }
   if(buttonType==="OK"){
     if(this.OTP==this.loginForm.value.OTP)
     {
-    
       this.userService.register(this.loginForm.value).subscribe(saveSuccessful => {
         this.result = saveSuccessful;
+        this.router.navigate(['/home'],{relativeTo:this.route});
       });
     }else{
-      
-   
+      this.showOTPErrorMessage=true;
+      this.showOTPMessage=false;
   }
   }
 
