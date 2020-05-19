@@ -1,9 +1,11 @@
+import { AuthService } from './auth/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from './common/services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { faSave,faCloud,faBookmark,faImage } from '@fortawesome/free-solid-svg-icons';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -23,7 +25,7 @@ export class AppComponent {
   result:boolean;
   OTP:string;
   loginResult:string;
-  constructor(  ) { }
+  constructor(public _authService: AuthService  ) { }
     
  
   

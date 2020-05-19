@@ -56,6 +56,7 @@ onSubmit(buttonType): void {
         this.user=result;
       });
       this.alertService.clear();
+   
       // // this.router.navigateByUrl('/home');
       // this.router.navigateByUrl('/home');
       if(this.user.id=="Naveen12121")
@@ -72,7 +73,7 @@ onSubmit(buttonType): void {
         }
   }
   if(buttonType==="Register"){
-    debugger;
+ 
     this.submittedResgiter = true;
     this.userService.sendOTP(this.loginForm.value.usernamePhoneRegistration).subscribe( result=>{
       this.OTP=result;
