@@ -58,11 +58,13 @@ onSubmit(buttonType): void {
       this.alertService.clear();
       // // this.router.navigateByUrl('/home');
       // this.router.navigateByUrl('/home');
-      if(this.user.token=="Valid")
+      if(this.user.id=="Naveen12121")
         {
+          localStorage.setItem('token', this.user.token)
         // this.router.navigateByUrl('/home');
         this.router.navigate(['/home'],{relativeTo:this.route});
         this.invalidUser=false;
+      //  localStorage.setItem('clickCounter', "loggedIn");
         }
         else
         {

@@ -11,18 +11,18 @@ import { first } from 'rxjs/operators';
 })
 export class AppComponent {
   title = 'SaveYourSearch';
-  // faSave = faSave;
-  // faCloud= faCloud;
-  // faImage=faImage;
-  // faBookmark=faBookmark;
-  // loginForm: FormGroup;
-  // loading = false;
-  // submitted = false;
-  // submittedResgiter = false;
-  // returnUrl: string;
-  // result:boolean;
-  // OTP:string;
-  // loginResult:string;
+  faSave = faSave;
+  faCloud= faCloud;
+  faImage=faImage;
+  faBookmark=faBookmark;
+  loginForm: FormGroup;
+  loading = false;
+  submitted = false;
+  submittedResgiter = false;
+  returnUrl: string;
+  result:boolean;
+  OTP:string;
+  loginResult:string;
   constructor(  ) { }
     
  

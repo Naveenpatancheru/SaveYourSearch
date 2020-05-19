@@ -1,3 +1,5 @@
+
+Hello
 <!--The content below is only a placeholder and can be replaced.-->
 <!-- <div style="text-align:center">
   <h1>
@@ -19,20 +21,22 @@
 </ul> -->
 
 <!-- <app-search></app-search> -->
-Welcome to {{ title }}!
+<!-- Welcome to {{ title }}!
 <div class="container-fluid  text-center mt-4 w-50" style="display:none">
 
-    <!-- <router-outlet></router-outlet> -->
+ 
    Here need to dump the notes !!
 </div>
 <br>
 
+Hello
 
-Here need to dump the notes !!
+
+Here need to dump the notes !! -->
 
 <!-- <nav style="background-color:#45b29a;" > -->
   <!-- <nav style="background-color:#28a745;" > -->
-    <nav style="background-color:#00C851;" >
+    <!-- <nav style="background-color:#00C851;" >
   <div class="container">
     
     
@@ -42,10 +46,6 @@ Here need to dump the notes !!
     <div class="navbar-header" style="display:none">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
               <span class="navbar-toggler-icon"></span>
-          <!-- <span class="sr-only">Toggle navigation  navbar-toggler      </span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>  -->
         
       </button>
       <a class="navbar-brand" href="#"><i class="fa fa-bars"></i></a>
@@ -54,7 +54,40 @@ Here need to dump the notes !!
     
   
   </div>
-</nav>
+</nav> -->
+<nav style="background-color:#00C851;" style="display: none;" >
+    <div class="container">
+      
+      
+      <div class="toggle">
+           <i id="social-windows" class="fa fa-bars menu"></i>
+      </div>
+      <div class="navbar-header" >
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="navbar-toggler-icon"></span>   
+        </button>
+        <a class="navbar-brand" href="#"><i class="fa fa-bars"></i></a>
+      </div>
+      <nav  class="menuBar">
+          <ul >
+                <li class="ladybug"></li>
+                <!-- <fa-icon [icon]="faSave" size="2x"></fa-icon> -->
+                  <!--commented this code for login-->
+                <li><a routerLink="/home" routerLinkActive="router-link-active"  class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a></li>
+                <li><a  routerLink="/search" routerLinkActive="router-link-active"  class="nav-item nav-link" href="#">BingImageSearch</a></li>
+                <li><a routerLink="/gallery" routerLinkActive="router-link-active" class="nav-item nav-link" href="#">Gallery</a></li>
+                <li><a routerLink="/bingwebsearch" routerLinkActive="router-link-active" class="nav-item nav-link" href="#">BingWebSearch</a></li>
+                <li><a routerLink="/savedbingsearch" routerLinkActive="router-link-active" class="nav-item nav-link" href="#">SavedSearch</a></li>
+                <li><a routerLink="/notes" routerLinkActive="router-link-active" class="nav-item nav-link" href="#">Notes</a></li>
+             <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   <li><a routerLink="/login" routerLinkActive="router-link-active" class="nav-item nav-link" href="#">Login/Register</a></li> -->
+             <li><a routerLink="/login" routerLinkActive="router-link-active" class="nav-item nav-link" href="#">LogOut</a></li>
+          </ul>
+      </nav>
+      
+    
+    </div>
+  </nav>
+  
 
 
 
@@ -64,7 +97,7 @@ Here need to dump the notes !!
   <div class="container">
  
     <!--commented this code for login-->
-    <!-- <router-outlet></router-outlet> -->
+    <router-outlet></router-outlet>
   </div>
  
 <!-- <app-search></app-search>

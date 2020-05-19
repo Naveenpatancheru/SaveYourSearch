@@ -28,7 +28,11 @@
             </div>
     <div class="form-group">
         <label for="username" class="control-label">PhoneNumber/EmailId</label>
-        <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid':submitted && f.username.errors }" />
+        <diV class="input-group-prepend">
+<span class="input-group-text">@</span>
+       
+        <input type="text" placeholder="Enter UserName" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid':submitted && f.username.errors }" />
+    </diV>
         <div *ngIf="f.username.errors" class="invalid-feedback">
             <div *ngIf="submitted && f.username.errors.required">Username is required</div>
         </div>
@@ -36,7 +40,10 @@
 
     <div class="form-group">
         <label for="password" class="control-label"  style="font-size:15px;">Password</label>
+        <diV class="input-group-prepend">
+            <span class="input-group-text">**</span>
         <input type="password" style="height:30px"  formControlName="password" class="form-control" [ngClass]="{ 'is-invalid':submitted && f.password.errors }" />
+        </diV>
         <div *ngIf="f.password.errors" class="invalid-feedback">
             <div *ngIf="submitted && f.password.errors.required">Password is required</div>
         </div>
@@ -48,6 +55,7 @@
             <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
             Login
         </button>
+        <p>Forgot <b><a id="forgot-userid" href="View/ForgotUserID.aspx">User ID </a></b>or <b><a id="forgot-password" href="View/ForgotPassword.aspx">Password </a></b>?</p>
     </div>
         </div>
         </div>
@@ -59,28 +67,28 @@
             <br>
             <div class="form-group">
                 <label for="firstName">First Name</label>
-                <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submittedResgiter && f.firstName.errors }" />
+                <input type="text" placeholder="Enter FirstName" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submittedResgiter && f.firstName.errors }" />
                 <div *ngIf="submittedResgiter && f.firstName.errors" class="invalid-feedback">
                     <div *ngIf="f.firstName.errors.required">First Name is required</div>
                 </div>
             </div>
             <div class="form-group">
                 <label for="lastName">Last Name</label>
-                <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submittedResgiter && f.lastName.errors }" />
+                <input type="text" placeholder="Enter LastName" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submittedResgiter && f.lastName.errors }" />
                 <div *ngIf="submittedResgiter && f.lastName.errors" class="invalid-feedback">
                     <div *ngIf="f.lastName.errors.required">Last Name is required</div>
                 </div>
             </div>
             <div class="form-group">
                 <label for="username">PhoneNumber/EmailId</label>
-                <input type="text" formControlName="usernamePhoneRegistration" class="form-control" [ngClass]="{ 'is-invalid': submittedResgiter && f.usernamePhoneRegistration.errors }" />
+                <input type="text" placeholder="Enter PhoneNumber/EmailId" formControlName="usernamePhoneRegistration" class="form-control" [ngClass]="{ 'is-invalid': submittedResgiter && f.usernamePhoneRegistration.errors }" />
                 <div *ngIf="submittedResgiter && f.usernamePhoneRegistration.errors" class="invalid-feedback">
                     <div *ngIf="f.usernamePhoneRegistration.errors.required">Username is required</div>
                 </div>
             </div>
             <div class="form-group">
                 <label for="password" >Password</label>
-                <input type="password" formControlName="passwordRegistration" class="form-control" [ngClass]="{ 'is-invalid': submittedResgiter && f.passwordRegistration.errors }" />
+                <input type="password" placeholder="Enter Password" formControlName="passwordRegistration" class="form-control" [ngClass]="{ 'is-invalid': submittedResgiter && f.passwordRegistration.errors }" />
                 <div *ngIf="submittedResgiter && f.passwordRegistration.errors" class="invalid-feedback">
                     <div *ngIf="f.passwordRegistration.errors.required">Password is required</div>
                     <div *ngIf="f.passwordRegistration.errors.minlength">Password must be at least 6 characters</div>
