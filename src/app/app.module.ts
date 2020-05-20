@@ -20,6 +20,9 @@ import { APP_BASE_HREF } from '@angular/common';
 import { LoginregisterComponent } from './loginregister/loginregister.component';
 import { AlertComponent } from './alert/alert.component';
 import { AuthGuard } from './auth/auth.guard';
+// import { AngularFontAwesomeModule } from 'angular-font-awesome';
+
+
 const appRoutes: Routes = [
   { path: 'search', component: SearchComponent },
   { path: 'gallery', component: GalleryComponent, canActivate:[AuthGuard] },
@@ -52,7 +55,7 @@ const appRoutes: Routes = [
     CommonModule,
     HttpModule,
     ReactiveFormsModule,
-    // FontAwesomeModule,
+    // AngularFontAwesomeModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only

@@ -54,14 +54,15 @@ onSubmit(buttonType): void {
     this.submitted = true;
       this.userService.login(this.loginForm.value).subscribe( result=>{
         this.user=result;
-      });
+      });66
       this.alertService.clear();
    
       // // this.router.navigateByUrl('/home');
       // this.router.navigateByUrl('/home');
-      if(this.user.id=="Naveen12121")
+      if(this.user.usernamePhoneRegistration!="InValid")
         {
           localStorage.setItem('token', this.user.token)
+          localStorage.setItem('LoggedUser', this.user.usernamePhoneRegistration)
         // this.router.navigateByUrl('/home');
         this.router.navigate(['/home'],{relativeTo:this.route});
         this.invalidUser=false;
