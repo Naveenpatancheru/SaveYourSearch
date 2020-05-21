@@ -11,11 +11,15 @@ import { Router } from '@angular/router';
 export class NotesComponent implements OnInit {
   constructor(private noteService:NoteService,private router: Router) { }
   urlInfo : note[]|null=null;
+  noteUpdateResult:boolean;
+  notesInfo:string;
+  notesHeadLine:string
   // faStickyNote=faStickyNote;
   // faEdit=faEdit;
   ngOnInit():void {
-  
-    this.noteService.getNoteInfo('NaveenPatancheru').subscribe( result=>{
+
+    var loggedInUser = localStorage.getItem('LoggedUser');
+    this.noteService.getNoteInfo(loggedInUser).subscribe( result=>{
       this.urlInfo=result;
     }
     
@@ -24,7 +28,12 @@ export class NotesComponent implements OnInit {
   }
 
 
-  btnAddNewNotes= function () {
-    this.router.navigateByUrl('/addnewnotes');
+  btnAddNewNotes(noteInfo : note) {
+    debugger;
+   // this.router.navigateByUrl('/addnewnotes');
+
+   this.noteService.updateNoteInfo(noteInfo).subscribe(saveSuccessful => {
+    this.noteUpdateResult = saveSuccessful;
+  });
 };
 }

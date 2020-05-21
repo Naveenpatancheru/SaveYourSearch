@@ -19,7 +19,7 @@ export class NoteService{
     getNoteInfo(urlInfo :string) :Observable<note[]>
     {
         debugger;
-        return this.http.get(`https://localhost:44388/api/Notes/${urlInfo}`)
+        return this.http.get(`https://localhost:44349/api/Notes/${urlInfo}`)
     .pipe(
         map(images => {
         return images.json() as note[] ;
@@ -33,6 +33,18 @@ export class NoteService{
         var headerOptions= new Headers({'Content-Type': 'application/json; charset=utf-8'});
         var requestOptions = new RequestOptions({method: RequestMethod.Post, headers: headerOptions});
          return this.http.post('https://localhost:44349/api/Notes', noteInfo,requestOptions
+          )
+            .pipe(map(response => {
+                return response.ok;
+            }));
+    }
+    public updateNoteInfo(noteInfo :noteClass):Observable<boolean>
+    {
+        debugger;
+        const options = {responseType: 'text'};
+        var headerOptions= new Headers({'Content-Type': 'application/json; charset=utf-8'});
+        var requestOptions = new RequestOptions({method: RequestMethod.Put, headers: headerOptions});
+         return this.http.put('https://localhost:44349/api/Notes', noteInfo,requestOptions
           )
             .pipe(map(response => {
                 return response.ok;

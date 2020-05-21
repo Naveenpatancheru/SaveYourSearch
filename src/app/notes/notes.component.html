@@ -90,11 +90,12 @@
         <!-- Variable width content -->
       </div>
       <div class="col col-lg-2 scrollable divFont">
-      <br> <br> {{note.noteHeadLine}} <br><br>
+      <br> <br> <textarea rows="2" style="border: none;color:#007E33;font-size: 20px;"  class="form-control font-weight-bolder;">{{note.noteHeadLine}} </textarea> <br><br>
      
       </div>
       <div class="col col-lg-8 divFont">
-     <br> <br> <button type="submit" class="btn btn-success  btn-sm " (click)="btnAddNewNotes();"></button>&nbsp;{{note.notesInfo}} <br><br>
+     <br> <br> <button type="submit" class="btn btn-success  btn-md" (click)="btnAddNewNotes(note);">Update Title/Info</button>
+     <br>&nbsp;&nbsp;<textarea rows="6" style="border: none"  class=form-control>{{note.notesInfo}}</textarea> <br><br>
     <hr>
     </div>
    

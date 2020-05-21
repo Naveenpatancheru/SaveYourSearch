@@ -54,7 +54,7 @@ onSubmit(buttonType): void {
     this.submitted = true;
       this.userService.login(this.loginForm.value).subscribe( result=>{
         this.user=result;
-      });66
+      });
       this.alertService.clear();
    
       // // this.router.navigateByUrl('/home');

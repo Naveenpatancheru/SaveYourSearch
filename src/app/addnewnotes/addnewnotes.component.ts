@@ -30,7 +30,7 @@ export class AddnewnotesComponent implements OnInit {
   this.noteClass.notesInfo=this.notesForm.value.noteInformation;
   this.noteClass.createdDate="Testing4/15";
   this.noteClass.moreInfo="MoreInfo";
-  this.noteClass.bufferColumn="BufferColumnN";
+  this.noteClass.bufferColumn=localStorage.getItem('LoggedUser');
   this.noteService.saveNoteInfo(this.noteClass).subscribe(saveSuccessful => {
     this.noteSaveResult = saveSuccessful;
   });
