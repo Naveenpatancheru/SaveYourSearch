@@ -17,3 +17,25 @@ h1
 {
     color:#5cb85c;
 }
+.callout {
+    /* padding: 20px;
+    margin: 20px 0; */
+    border: 1px solid #5cb85c;
+    border-left-width: 4px;
+
+}
+
+.callOutGrey {
+    border: 1px solid grey;
+    border-left-width: 4px;
+}
+
+.callOutBlue {
+    border: 1px solid black;
+    border-left-width: 4px;
+}
+
+.callOutGoogle {
+    border: 1px solid #0893f3;
+    border-left-width: 4px;
+}
