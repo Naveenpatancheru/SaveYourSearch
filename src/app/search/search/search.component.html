@@ -1,21 +1,12 @@
 
 <div class="page-header">
-   
-    <!-- <app-gallery></app-gallery> -->
-    <!-- <div class="form-group">
-    
-</div> -->
 <br>
     <div class="form-group">
         <div class="col-sm-6">
            <h1>Search And Save</h1>
-            <!-- <p>Search Images using Bing Image Cognitive Search.</p>  -->
-       
         </div>
-      
         <div class="col-sm-4">
-           
-            <input type="text" class="form-control" id="searchInput" #searchInput>
+    <input type="text" class="form-control" style="font-size: 20px;" id="searchInput" #searchInput>
         </div>
         <br>
         <br>
@@ -23,12 +14,12 @@
         <button type="submit" class="btn btn-success" (click)="search(searchInput.value)">Search</button>
     </div>
     </div>
-
   <br>
 
-   
+  <div class="alert alert-success" style="text-align: center; font-size: 8px; color: black; margin-top: 15px; padding: 0;"><span class="glyphicon glyphicon-info-sign"></span>&nbsp; <h6 class="no-results" *ngIf="!searchResults && !isSearching">Search for images to display results here.</h6></div>
     <div class="results" *ngIf="searchResults">
         <h2><b>Search Results</b></h2>
+        <h4 class="no-results" *ngIf="!currentAnalytics && !isAnalyzing">Select a photo to analyze it.</h4>
         <!-- <div class="alert alert-success"  style="text-align: center; font-size: 8px; color: black; margin-top: 15px; padding: 0;"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;   <h4 > Search Results</h4></div> -->
         <div *ngFor="let result of searchResults" (click)="analyze(result)"  class="card">
             <img src="{{result?.thumbnailUrl}}" class="img-thumbnail" />
@@ -36,8 +27,7 @@
     </div>
     <br>
     <br>
-    <!-- <h4 class="no-results" *ngIf="!searchResults && !isSearching">Search for images to display results here.</h4> -->
-  <div class="alert alert-success" style="text-align: center; font-size: 8px; color: black; margin-top: 15px; padding: 0;"><span class="glyphicon glyphicon-info-sign"></span>&nbsp; <h6 class="no-results" *ngIf="!searchResults && !isSearching">Search for images to display results here.</h6></div>
+
    
   <div class="alert alert-success" *ngIf="isSearching" style="text-align: center; font-size: 8px; color: black; margin-top: 15px; padding: 0;"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;   <h4 class="no-results" *ngIf="isSearching">Loading Search Results...</h4></div>
   <h4 class="no-results" *ngIf="isSearching">Loading Search Results...</h4>
@@ -55,12 +45,12 @@
             <div *ngIf="!isAnalyzing">
                 <h4><b>{{currentAnalytics?.description.captions[0].text}}</b></h4>
                 <div>
-                    <span class="badge badge-pill badge-success" [ngClass]="{'label-default': tag.confidence >= .75, 'label-warning': tag.confidence >= .5 && tag.confidence < .75, 'label-danger': tag.confidence < .5}" *ngFor="let tag of currentAnalytics?.tags">
+                    <span class="badge badge-pill badge-warning" style="font-size: 14px;" [ngClass]="{'label-default': tag.confidence >= .75, 'label-warning': tag.confidence >= .5 && tag.confidence < .75, 'label-danger': tag.confidence < .5}" *ngFor="let tag of currentAnalytics?.tags">
                        &nbsp; {{tag.name}}  &nbsp;
                     </span>
                 </div>
             
-                <button *ngIf="!currentItemSaved" (click)="saveImage()">Save Image</button>
+                <button *ngIf="!currentItemSaved" class="btn btn-success"  (click)="saveImage()">Save Image</button>
          <span *ngIf="currentItemSaved">Image Saved!</span>
 
 
@@ -70,8 +60,9 @@
                 <h4>Analyzing Photo</h4>
             </div>
         </div>
-        <h4 class="no-results" *ngIf="!currentAnalytics && !isAnalyzing">Select a photo to analyze it.</h4>
+     
     </div>
+
     <br/>
     <br/>
 </div>

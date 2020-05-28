@@ -30,7 +30,7 @@ export class SaveYourSearch{
         const options = {responseType: 'text'};
         var headerOptions= new Headers({'Content-Type': 'application/json; charset=utf-8'});
         var requestOptions = new RequestOptions({method: RequestMethod.Post, headers: headerOptions});
-         return this.http.post('https://localhost:44316/api/Images', imagePostRequest,requestOptions
+         return this.http.post('https://localhost:44349/api/Images', imagePostRequest,requestOptions
           )
             .pipe(map(response => {
                 return response.ok;
@@ -41,7 +41,7 @@ export class SaveYourSearch{
     public getImages(userId: string): Observable<SavedImage[]> {
         debugger;
         userId="NaveenPatancheru";
-        return this.http.get(`https://localhost:44316/api/images/${userId}`)
+        return this.http.get(`https://localhost:44349/api/images/${userId}`)
             .pipe(map(images => {
                 return images.json() as SavedImage[];
             }), catchError(this.handleError));

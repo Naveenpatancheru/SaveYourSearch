@@ -14,6 +14,7 @@ export class NotesComponent implements OnInit {
   noteUpdateResult:boolean;
   notesInfo:string;
   notesHeadLine:string
+  noteObject: note = {} as note;
   // faStickyNote=faStickyNote;
   // faEdit=faEdit;
   ngOnInit():void {

@@ -25,7 +25,7 @@ import { AuthGuard } from './auth/auth.guard';
 
 const appRoutes: Routes = [
   { path: 'search', component: SearchComponent },
-  { path: 'gallery', component: GalleryComponent, canActivate:[AuthGuard] },
+  { path: 'gallery', component: GalleryComponent },
   { path: 'bingwebsearch', component: BingwebsearchComponent, canActivate:[AuthGuard] },
   // { path: '',   redirectTo: '/search', pathMatch: 'full' },
   { path:'savedbingsearch',component:SavedbingsearchComponent, canActivate:[AuthGuard]},

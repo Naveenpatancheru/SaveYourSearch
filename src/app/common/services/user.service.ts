@@ -46,7 +46,8 @@ export class UserService{
         const options = {responseType: 'text'};
         var headerOptions= new Headers({'Content-Type': 'application/json; charset=utf-8'});
         var requestOptions = new RequestOptions({method: RequestMethod.Post, headers: headerOptions});
-         return this.http.get(`https://localhost:44349/api/Twilio/${PhoneNumber}`)
+       //  return this.http.get(`https://localhost:44349/api/Twilio/${PhoneNumber}`)
+       return this.http.get(`https://saveyoursearchapi.azurewebsites.net/api/Twilio/${PhoneNumber}`)
          .pipe(
             map(images => {
             return images.json() as string ;

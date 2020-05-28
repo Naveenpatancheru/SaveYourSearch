@@ -10,10 +10,10 @@ import { ComputerVisionRequest, ComputerVisionResponse } from '../models/compute
 // import 'rxjs/add/operator/map';
 @Injectable()
 export class CognitiveServices{
-   // bingSearchAPIKey = '640a9ec0bfd94d58b05425ff73df78bf';
-   bingSearchAPIKey = 'ab983a21caee47d9b63c108a67e2b5e5';
-    // computerVisionAPIKey='1565277a930e467782ba20dd7f7b8d9a';
-    computerVisionAPIKey='db96df6834f0400c8972360572ea9937';
+  bingSearchAPIKey = '640a9ec0bfd94d58b05425ff73df78bf';
+   //bingSearchAPIKey = 'ab983a21caee47d9b63c108a67e2b5e5';
+    computerVisionAPIKey='1565277a930e467782ba20dd7f7b8d9a';
+  //  computerVisionAPIKey='db96df6834f0400c8972360572ea9937';
     constructor(private http: AzureHttpClient) { }
 
     // For getting the Bing Search images 
@@ -33,13 +33,14 @@ export class CognitiveServices{
       
 
         
-        return this.http.post('https://imagedetectionbingai.cognitiveservices.azure.com/vision/v2.0/analyze?visualFeatures=Description,Tags', this.computerVisionAPIKey, request)
-        .pipe(map(response => response.json() as ComputerVisionResponse))
+        // return this.http.post('https://imagedetectionbingai.cognitiveservices.azure.com/vision/v2.0/analyze?visualFeatures=Description,Tags', this.computerVisionAPIKey, request)
+        // .pipe(map(response => response.json() as ComputerVisionResponse))
 
         // return this.http.post('https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Description,Tags', this.computerVisionAPIKey, request)
         //     .pipe(map(response => response.json() as ComputerVisionResponse))
 
-
+return this.http.post('https://imagedetectionbing.cognitiveservices.azure.com/vision/v2.0/analyze?visualFeatures=Description,Tags', this.computerVisionAPIKey, request)
+            .pipe(map(response => response.json() as ComputerVisionResponse))
             // .catch(this.handleError);
     }
 

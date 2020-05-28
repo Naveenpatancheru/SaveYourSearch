@@ -26,7 +26,7 @@ export class BingWebSearchServices{
 
            // .catch(this.handleError);
         
-            return this.http.get(`https://localhost:44388/api/WebSearch/${searchTerm}`)
+            return this.http.get(`https://localhost:44349/api/WebSearch/${searchTerm}`)
             .pipe(map(images => {
                 return images.json() as BingWebSearchResponse ;
             
@@ -41,7 +41,7 @@ export class BingWebSearchServices{
                 const options = {responseType: 'text'};
                 var headerOptions= new Headers({'Content-Type': 'application/json; charset=utf-8'});
                 var requestOptions = new RequestOptions({method: RequestMethod.Post, headers: headerOptions});
-                return this.http.post('https://localhost:44388/api/BingWebSearch', urlInfo,requestOptions
+                return this.http.post('https://saveyoursearchapi.azurewebsites.net/api/BingWebSearch', urlInfo,requestOptions
                 )
                   .pipe(map(response => {
                       return response.ok;
@@ -50,7 +50,7 @@ export class BingWebSearchServices{
 
              getUrlInfo(urlInfo :string) :Observable<value[]>
             {
-                return this.http.get(`https://localhost:44388/api/BingWebSearch/${urlInfo}`)
+                return this.http.get(`https://saveyoursearchapi.azurewebsites.net/api/BingWebSearch/${urlInfo}`)
             .pipe(
                 map(images => {
                 return images.json() as value[] ;
