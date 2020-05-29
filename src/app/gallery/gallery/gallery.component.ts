@@ -11,9 +11,11 @@ export class GalleryComponent implements OnInit {
 
   constructor(private saveYourSearch :SaveYourSearch) { }
   savedImages: SavedImage[] | null = null;
+   loggedInUser:string;
   ngOnInit(): void {
-    debugger;
-    this.saveYourSearch.getImages("NaveenPatancheru").subscribe(images =>{
+    this.loggedInUser=localStorage.getItem('LoggedUser');
+
+    this.saveYourSearch.getImages( this.loggedInUser).subscribe(images =>{
    this.savedImages=images;
     });
   }

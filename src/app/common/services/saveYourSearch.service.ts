@@ -39,8 +39,7 @@ export class SaveYourSearch{
             // .catch(this.handleError);
     }
     public getImages(userId: string): Observable<SavedImage[]> {
-        debugger;
-        userId="NaveenPatancheru";
+       
         return this.http.get(`https://localhost:44349/api/images/${userId}`)
             .pipe(map(images => {
                 return images.json() as SavedImage[];

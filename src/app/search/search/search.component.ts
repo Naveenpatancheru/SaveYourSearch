@@ -49,7 +49,7 @@ analyze(result: ImageResult) {
 }
 saveImage() {
   let transferObject = {
-      userId :"NaveenPatancheru",
+      userId :localStorage.getItem('LoggedUser'),
       url: this.currentItem.thumbnailUrl,
       encodingFormat: this.currentItem.encodingFormat,
       id: this.currentItem.imageId,

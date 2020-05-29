@@ -21,13 +21,13 @@ h1
     /* padding: 20px;
     margin: 20px 0; */
     border: 1px solid #5cb85c;
-    border-left-width: 4px;
+    border-left-width: 5px;
 
 }
 
 .callOutGrey {
-    border: 1px solid grey;
-    border-left-width: 4px;
+    /* border: 1px solid black;  */
+    border-left-width: 5px;
 }
 
 .callOutBlue {
@@ -38,4 +38,7 @@ h1
 .callOutGoogle {
     border: 1px solid #0893f3;
     border-left-width: 4px;
+}
+input{
+    font-size: 14px;
 }

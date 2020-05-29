@@ -1,12 +1,9 @@
-<!-- <p>login works!</p> -->
+
 <br>
 <br>
 <br>
 <br>
-<!-- <br>
-<br>
-<br>
-<br> -->
+
 
 <div class="page-header" id="HeaderImage">
    <!-- <img src="../assets/Cloud4.png" width="450px" height="230px" class="center-block" /> -->
@@ -35,7 +32,7 @@
         <!-- <diV class="input-group-prepend">
         <span class="input-group-text callOutGrey">@</span> -->
        
-        <input type="text" placeholder="Enter UserName" formControlName="username" class="form-control callOutGrey" [ngClass]="{ 'is-invalid':submitted && f.username.errors }" />
+        <input type="text" placeholder="Enter UserName" formControlName="username" class="form-control  callout" [ngClass]="{ 'is-invalid':submitted && f.username.errors }" />
     <!-- </diV> -->
         <div *ngIf="f.username.errors" class="invalid-feedback">
             <div *ngIf="submitted && f.username.errors.required">Username is required</div>
@@ -45,10 +42,10 @@
  
     <div class="form-group">
         <label for="password" class="control-label"  style="font-size:15px;">Password</label>
-        <diV class="input-group-prepend">
-            <span class="input-group-text">**</span>
-        <input type="password" style="height:30px"  formControlName="password" class="form-control" [ngClass]="{ 'is-invalid':submitted && f.password.errors }" />
-        </diV>
+        <!-- <diV class="input-group-prepend"> -->
+            <!-- <span class="input-group-text">**</span> -->
+        <input type="password" placeholder="Enter Password"     formControlName="password" class="form-control callout" [ngClass]="{ 'is-invalid':submitted && f.password.errors }" />
+        <!-- </diV> -->
         <div *ngIf="f.password.errors" class="invalid-feedback">
             <div *ngIf="submitted && f.password.errors.required">Password is required</div>
         </div>
@@ -56,7 +53,7 @@
 
     <div class="form-group">
         <!-- [disabled]="loading"  -->
-        <button type="submit" class="btn btn-lg btn-success btn-block" (click)="onSubmit('Login')">
+        <button type="button" class="btn btn-lg btn-success btn-block" (click)="onSubmit('Login')">
             <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
             Login
         </button>
@@ -169,7 +166,21 @@
 
 </div>
   
+
 </form>
+
+
+
         </div>
     </div>
 </div>
+
+
+
+
+
+
+
+
+
+
