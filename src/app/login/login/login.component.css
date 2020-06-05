@@ -12,7 +12,18 @@ button{
     height:40px;
     font-size: 18px;
 }
-
+.vl {
+    border-left: 1px solid #eee;
+    height: 350px;
+  }
+  label, ::placeholder,button,span,p
+  {
+    font-family: 'Exo 2', sans-serif;
+  }
+  label
+  {
+      font-size: 14px;
+  }
 h1
 {
     color:#5cb85c;
@@ -22,6 +33,8 @@ h1
     margin: 20px 0; */
     border: 1px solid #5cb85c;
     border-left-width: 5px;
+    width: 210px;
+    height: 38px;
 
 }
 
@@ -41,4 +54,14 @@ h1
 }
 input{
     font-size: 14px;
+}
+input {
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 3px;
+    height: 40px;
+}
+.btn
+{
+    height: 40px;
 }

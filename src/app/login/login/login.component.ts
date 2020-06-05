@@ -5,6 +5,16 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { AlertService,  } from './../../common/services/alert.service';
+
+import { GoogleLoginProvider, FacebookLoginProvider, AuthService } from 'angularx-social-login';  
+import { SocialLoginModule, AuthServiceConfig } from 'angularx-social-login';  
+import { Socialusers } from './../../common/models/socialusers';
+import { SocialloginService } from './../../common/services/socialLogin.service';
+
+
+
+
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -25,11 +35,15 @@ export class LoginComponent implements OnInit {
   showOTPMessage:boolean;
   showDivOTP:boolean;
   showOTPErrorMessage:boolean;
+  socialusers=new Socialusers();  
+  response;
   constructor(  private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private userService: UserService,
     private router: Router,
-    private alertService: AlertService) { }
+    private alertService: AlertService,
+    public OAuth: AuthService,  
+    private SocialloginService: SocialloginService ) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -47,6 +61,38 @@ export class LoginComponent implements OnInit {
   this.showDivOTP=false;
   this.showOTPMessage=false;
   }
+  public socialSignIn(socialProvider: string) {  
+    let socialPlatformProvider;  
+    if (socialProvider === 'facebook') {  
+      socialPlatformProvider = FacebookLoginProvider.PROVIDER_ID;  
+    } else if (socialProvider === 'google') {  
+      socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;  
+    }  
+    this.OAuth.signIn(socialPlatformProvider).then(socialusers => {  
+      console.log(socialProvider, socialusers);  
+      console.log(socialusers);  
+      localStorage.setItem('token', socialusers.authToken);
+      localStorage.setItem('LoggedUser', socialusers.email);
+      localStorage.setItem('UserFBUrl', socialusers.photoUrl);
+      localStorage.setItem('UserName', socialusers.name);
+      this.Savesresponse(this.socialusers);  
+    });  
+  }  
+
+  Savesresponse(socialusers: Socialusers) {  
+    this.router.navigate([`/home`],{relativeTo:this.route}); 
+    // this.SocialloginService.Savesresponse(socialusers).subscribe((res: any) => {  
+    //   debugger;  
+    //   console.log(res);  
+    //   this.socialusers=res;  
+    //   this.response = res.userDetail;  
+    //   localStorage.setItem('socialusers', JSON.stringify( this.socialusers));  
+    //   console.log(localStorage.setItem('socialusers', JSON.stringify(this.socialusers)));  
+    //   this.router.navigate([`/home`],{relativeTo:this.route});  
+    // })  
+  }  
+
+
   get f() { return this.loginForm.controls; }
 
 onSubmit(buttonType): void {

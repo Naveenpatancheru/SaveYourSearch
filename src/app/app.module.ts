@@ -22,6 +22,27 @@ import { AlertComponent } from './alert/alert.component';
 import { AuthGuard } from './auth/auth.guard';
 // import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
+// import { SocialLoginModule, AuthServiceConfig} from "angularx-social-login";
+// import { GoogleLoginProvider, FacebookLoginProvider } from "angularx-social-login";
+
+import {ChartsModule } from "ng2-charts";
+
+// export function socialConfigs() {  
+//   const config = new AuthServiceConfig(  
+//     [  
+//       {  
+//         id: FacebookLoginProvider.PROVIDER_ID,  
+//         provider: new FacebookLoginProvider('1675560082594025')  
+//       },  
+//       {  
+//         id: GoogleLoginProvider.PROVIDER_ID,  
+//         provider: new GoogleLoginProvider('1005968250740-8pg5p1t3bietuj5jugo20gv51hcsfjts.apps.googleusercontent.com')  
+//       }  
+//     ]  
+//   );  
+//   return config;  
+//   }
+
 
 const appRoutes: Routes = [
   { path: 'search', component: SearchComponent },
@@ -56,13 +77,19 @@ const appRoutes: Routes = [
     CommonModule,
     HttpModule,
     ReactiveFormsModule,
+    ChartsModule,
     // AngularFontAwesomeModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
     )
   ],
-  providers: [ {provide: APP_BASE_HREF, useValue: '/' }, AuthGuard,AuthService],
+  providers: [ {provide: APP_BASE_HREF, useValue: '/' }, AuthGuard,AuthService]
+  // {  
+  //   provide: AuthServiceConfig,  
+  //   useFactory: socialConfigs  
+  // }  
+,
   bootstrap: [AppComponent]
 })
 export class AppModule { }

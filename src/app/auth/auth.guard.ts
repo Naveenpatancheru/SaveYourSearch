@@ -17,7 +17,7 @@ export class AuthGuard implements CanActivate {
               private _router: Router){               
   }
   canActivate():boolean{
-debugger;
+
     if(this._authservice.loggedIn()){
       return true;
     }else

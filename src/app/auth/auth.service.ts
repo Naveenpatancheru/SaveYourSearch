@@ -29,7 +29,7 @@ export class AuthService {
     this.router.navigate(['/login']);
   }
   loggedIn(){
-    debugger;
+  
     return !!localStorage.getItem('token')
   }
 }

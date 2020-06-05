@@ -7,6 +7,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
 
+
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -27,8 +30,13 @@ export class AppComponent {
   result:boolean;
   OTP:string;
   loginResult:string;
-  constructor(public _authService: AuthService  ) { }
+
+  constructor(public _authService: AuthService, private router: Router,
+       ) { }
     
- 
   
+       public socialSignIn(socialProvider: string) {  
+        this.router.navigate([`/login`]); 
+      }  
+    
 }
