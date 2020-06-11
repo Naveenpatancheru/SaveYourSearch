@@ -65,10 +65,12 @@ export class LoginComponent implements OnInit {
     let socialPlatformProvider;  
     if (socialProvider === 'facebook') {  
       socialPlatformProvider = FacebookLoginProvider.PROVIDER_ID;  
-    } else if (socialProvider === 'google') {  
+    } else if (socialProvider === 'google') { 
+      debugger; 
       socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;  
     }  
     this.OAuth.signIn(socialPlatformProvider).then(socialusers => {  
+      debugger;
       console.log(socialProvider, socialusers);  
       console.log(socialusers);  
       localStorage.setItem('token', socialusers.authToken);
@@ -107,10 +109,11 @@ onSubmit(buttonType): void {
       // this.router.navigateByUrl('/home');
       if(this.user.usernamePhoneRegistration!="InValid")
         {
+          debugger;
           localStorage.setItem('token', this.user.token)
           localStorage.setItem('LoggedUser', this.user.usernamePhoneRegistration)
-        // this.router.navigateByUrl('/home');
-        this.router.navigate(['/home'],{relativeTo:this.route});
+         this.router.navigateByUrl('/home');
+       // this.router.navigate(['/home'],{relativeTo:this.route});
         this.invalidUser=false;
       //  localStorage.setItem('clickCounter', "loggedIn");
         }
@@ -120,7 +123,7 @@ onSubmit(buttonType): void {
         }
   }
   if(buttonType==="Register"){
- 
+ debugger;
     this.submittedResgiter = true;
     this.userService.sendOTP(this.loginForm.value.usernamePhoneRegistration).subscribe( result=>{
       this.OTP=result;
@@ -131,6 +134,7 @@ onSubmit(buttonType): void {
     });
   }
   if(buttonType==="OK"){
+    debugger;
     if(this.OTP==this.loginForm.value.OTP)
     {
       this.userService.register(this.loginForm.value).subscribe(saveSuccessful => {

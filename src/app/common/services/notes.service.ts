@@ -32,7 +32,9 @@ export class NoteService{
         const options = {responseType: 'text'};
         var headerOptions= new Headers({'Content-Type': 'application/json; charset=utf-8'});
         var requestOptions = new RequestOptions({method: RequestMethod.Post, headers: headerOptions});
-         return this.http.post('https://saveyoursearchapi.azurewebsites.net/api/Notes', noteInfo,requestOptions
+        //  return this.http.post('https://saveyoursearchapi.azurewebsites.net/api/Notes', noteInfo,requestOptions
+        //   )
+         return this.http.post('https://localhost:44349/api/Notes', noteInfo,requestOptions
           )
             .pipe(map(response => {
                 return response.ok;

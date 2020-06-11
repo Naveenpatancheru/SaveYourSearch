@@ -14,7 +14,8 @@ export class SavedbingsearchComponent implements OnInit {
   urlInfo : value[]|null=null;
   ngOnInit():void {
     debugger;
-    this.bingWebSearchServices.getUrlInfo('NaveenPatancheru').subscribe( result=>{
+    var loggedInUser = localStorage.getItem('LoggedUser');
+    this.bingWebSearchServices.getUrlInfo(loggedInUser).subscribe( result=>{
       this.urlInfo=result;
     }
     

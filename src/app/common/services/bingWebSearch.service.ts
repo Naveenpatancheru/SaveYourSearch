@@ -38,11 +38,13 @@ export class BingWebSearchServices{
             saveUrlInfo(urlInfo :value) :Observable<boolean>
             {
                 debugger;
+                // https://localhost:44349
                 const options = {responseType: 'text'};
                 var headerOptions= new Headers({'Content-Type': 'application/json; charset=utf-8'});
                 var requestOptions = new RequestOptions({method: RequestMethod.Post, headers: headerOptions});
-                return this.http.post('https://saveyoursearchapi.azurewebsites.net/api/BingWebSearch', urlInfo,requestOptions
-                )
+               // return this.http.post('https://saveyoursearchapi.azurewebsites.net/api/BingWebSearch', urlInfo,requestOptions
+               return this.http.post('https://localhost:44349/api/BingWebSearch', urlInfo,requestOptions
+               )
                   .pipe(map(response => {
                       return response.ok;
                   }));
@@ -50,7 +52,8 @@ export class BingWebSearchServices{
 
              getUrlInfo(urlInfo :string) :Observable<value[]>
             {
-                return this.http.get(`https://saveyoursearchapi.azurewebsites.net/api/BingWebSearch/${urlInfo}`)
+              //  return this.http.get(`https://saveyoursearchapi.azurewebsites.net/api/BingWebSearch/${urlInfo}`)
+              return this.http.get(`https://localhost:44349/api/BingWebSearch/${urlInfo}`)
             .pipe(
                 map(images => {
                 return images.json() as value[] ;

@@ -1,3 +1,4 @@
+// import { DashBoardService } from './common/services/dashBoard.service';
 import { AuthService } from './auth/auth.service';
 import { CommonModule } from './common/common.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -20,12 +21,14 @@ import { APP_BASE_HREF } from '@angular/common';
 import { LoginregisterComponent } from './loginregister/loginregister.component';
 import { AlertComponent } from './alert/alert.component';
 import { AuthGuard } from './auth/auth.guard';
+
+import { HttpClientModule } from '@angular/common/http';
 // import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 // import { SocialLoginModule, AuthServiceConfig} from "angularx-social-login";
 // import { GoogleLoginProvider, FacebookLoginProvider } from "angularx-social-login";
 
-import {ChartsModule } from "ng2-charts";
+ import {ChartsModule } from "ng2-charts";
 
 // export function socialConfigs() {  
 //   const config = new AuthServiceConfig(  
@@ -71,13 +74,15 @@ const appRoutes: Routes = [
     HomeComponent,
     LoginregisterComponent,
     AlertComponent
+
   ],
   imports: [
     BrowserModule,
     CommonModule,
     HttpModule,
     ReactiveFormsModule,
-    ChartsModule,
+     ChartsModule,
+     HttpClientModule,
     // AngularFontAwesomeModule,
     RouterModule.forRoot(
       appRoutes,

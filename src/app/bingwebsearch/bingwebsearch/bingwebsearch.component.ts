@@ -58,7 +58,8 @@ this.bingWebSearchService.searchWeb(serachItem).subscribe(result => {
   }
 
   saveUrlInfo(urlInfo : value){
-
+   
+    urlInfo.userid= localStorage.getItem('LoggedUser');
     urlInfo.id=uuid();
 
 this.bingWebSearchService.saveUrlInfo(urlInfo).subscribe(saveSuccessful => {

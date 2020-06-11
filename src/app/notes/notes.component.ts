@@ -29,12 +29,12 @@ export class NotesComponent implements OnInit {
   }
 
 
-  btnAddNewNotes(noteInfo : note) {
+  btnAddNewNotes() {
     debugger;
-   // this.router.navigateByUrl('/addnewnotes');
+   this.router.navigateByUrl('/addnewnotes');
 
-   this.noteService.updateNoteInfo(noteInfo).subscribe(saveSuccessful => {
-    this.noteUpdateResult = saveSuccessful;
-  });
+  //  this.noteService.updateNoteInfo(noteInfo).subscribe(saveSuccessful => {
+  //   this.noteUpdateResult = saveSuccessful;
+  // });
 };
 }
